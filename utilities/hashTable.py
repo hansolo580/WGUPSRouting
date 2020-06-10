@@ -11,12 +11,14 @@ class HashTable:
     def __init__(self, initialize=10):
         # initializes a hash table with empty buckets.
         self.map = []
+
         for i in range(initialize):
             self.map.append([])
 
     # getter to generate hash key. Complexity is O(1)
     def get_hash_key(self, key):
         hash_key = int(key) % len(self.map)
+
         return hash_key
 
     # setter to insert new value to HashTable. Complexity is O(N)
@@ -38,6 +40,7 @@ class HashTable:
     # setter to update existing package. Complexity is O(N)
     def update_package(self, key, value):
         package_key = self.get_hash_key(key)
+
         if self.map[package_key] is not None:
             for i in self.map[package_key]:
                 if i[0] == key:
@@ -50,6 +53,7 @@ class HashTable:
     # getter to read data from HashTable. Complexity is O(N)
     def get(self, key):
         package_key = self.get_hash_key(key)
+
         if self.map[package_key] is not None:
             for i in self.map[package_key]:
                 if i[0] == key:
